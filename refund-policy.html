@@ -56,7 +56,8 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: padding 0.3s ease; 
+            /* === PERUBAHAN CSS: Menambahkan 'height' ke transisi === */
+            transition: height 0.3s ease, padding 0.3s ease; 
         }
 
         .logo-container {
@@ -71,12 +72,22 @@
             transition: height 0.3s ease;
         }
         
-        /* === TAMBAHAN CSS UNTUK LINK LOGO === */
         .logo-container a {
             line-height: 1; /* Mencegah spasi ekstra dari link */
         }
+
+        /* === CSS BARU UNTUK HEADER SAAT SCROLL === */
+        .header.header-scrolled {
+            height: 70px; /* Header akan mengecil jadi 70px */
+            background: rgba(1, 10, 17, 0.95); /* Jadi sedikit lebih pekat */
+        }
+
+        .header.header-scrolled .logo-image {
+            height: 70px; /* Logo akan mengecil jadi 70px */
+        }
+        /* ========================================= */
         
-        /* === CSS BARU UNTUK KONTEN KEBIJAKAN === */
+        /* === CSS UNTUK KONTEN KEBIJAKAN === */
         .policy-container {
             padding: 140px 5% 80px 5%; 
             max-width: 900px;
@@ -288,7 +299,7 @@
             <a href="index.html">
                 <img src="epsilone_logo.png" alt="EPSILONE Logo" class="logo-image">
             </a>
-            </div>
+        </div>
     </header>
 
     <section class="policy-container">
@@ -350,7 +361,8 @@
 
         <div class="footer-bottom">
             <p>
-                © 2025 EPSILONE. All Rights Reserved. Dikelola oleh Muhammad Alfath Kurnia.
+                <!-- === PERUBAHAN TEKS DI SINI === -->
+                © 2025 EPSILONE. All Rights Reserved. Dikelola oleh MAKE.
                 <a href="terms-condition.html">Terms & Condition</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
                 <a href="refund-policy.html">Refund Policy</a>
@@ -358,5 +370,21 @@
         </div>
     </footer>
 
+    <!-- === KODE JAVASCRIPT BARU === -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.querySelector('.header');
+            if (header) {
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 50) {
+                        header.classList.add('header-scrolled');
+                    } else {
+                        header.classList.remove('header-scrolled');
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- ============================ -->
 </body>
 </html>
