@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy & Policy | EPSILONE</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- ROOT VARIABLES --- */
+        :root {
+            --bg-darkest: #010a11;
+            --bg-fog: #0d1e2e;
+            --accent-gold: #d4af37;
+            --logo-cyan: #7DD3D8;
+            --text-primary: #e6f1f5;
+            --text-secondary: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: var(--bg-darkest);
+            background-image:
+                radial-gradient(circle at 50% 30%, rgba(20, 40, 60, 0.4) 0%, transparent 70%),
+                linear-gradient(to bottom, var(--bg-fog) 0%, var(--bg-darkest) 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER (SAMA DENGAN index.html) --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0 5%;
+            height: 90px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(1, 10, 17, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: padding 0.3s ease; 
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
+        .logo-image {
+            height: 120px;
+            width: auto;
+            transition: height 0.3s ease;
+        }
+        
+        /* === CSS BARU UNTUK KONTEN KEBIJAKAN === */
+        .policy-container {
+            /* Padding atas = tinggi header (90px) + jarak (50px) */
+            padding: 140px 5% 80px 5%; 
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .policy-content {
+            background: rgba(10, 25, 40, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .policy-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--logo-cyan);
+            padding-bottom: 10px;
+        }
+
+        .policy-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            color: var(--logo-cyan);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .policy-content p, .policy-content li {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.8;
+            font-size: 1.1em;
+        }
+
+        .policy-content ul {
+            padding-left: 30px; /* Jarak untuk bullet points */
+        }
+
+        .policy-content a {
+            color: var(--logo-cyan);
+            text-decoration: none;
+        }
+
+        .policy-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- FOOTER (SAMA DENGAN index.html) --- */
+        .footer {
+            padding: 60px 5% 40px 5%;
+            margin-top: 60px;
+            background-color: var(--bg-darkest);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column.social {
+            text-align: left;
+        }
+
+        .footer-social-links a {
+            display: inline-block;
+            color: var(--text-secondary);
+            font-size: 1.5em;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--logo-cyan);
+        }
+
+        .footer-column.contact {
+            text-align: right;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+        }
+
+        .footer-contact-list li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .footer-contact-list i {
+            font-size: 1.1em;
+            color: var(--logo-cyan);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-list a:hover {
+            color: var(--text-primary);
+        }
+        
+        .footer-about {
+            padding: 40px 0;
+            margin: 40px 0 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 0;
+            border-top: none;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .footer-bottom a {
+            color: var(--logo-cyan);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .header {
+                padding: 0 5%;
+                height: 70px;
+            }
+
+            .logo-image {
+                height: 70px;
+            }
+
+            /* Responsive Policy */
+            .policy-container {
+                padding-top: 120px;
+            }
+            .policy-content h1 {
+                font-size: 2em;
+            }
+            .policy-content h2 {
+                font-size: 1.5em;
+            }
+            .policy-content {
+                padding: 30px 20px;
+            }
+
+            /* Responsive Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-column.social {
+                text-align: center;
+            }
+            .footer-column.contact {
+                text-align: center;
+            }
+            .footer-contact-list li {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="epsilone_logo.png" alt="EPSILONE Logo" class="logo-image">
+        </div>
+    </header>
+
+    <section class="policy-container">
+        <div class="policy-content">
+            <h1>Privacy and Policy</h1>
+            <p>Terakhir diperbarui: 12 November 2025</p>
+
+            <p>Selamat datang di EPSILONE ("kami", "milik kami"). Kami menghargai privasi Anda dan berkomitmen untuk melindungi informasi pribadi Anda. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda saat Anda mengunjungi website kami.</p>
+
+            <h2>1. Pengumpulan Informasi</h2>
+            <p>Kami mengumpulkan informasi yang Anda berikan secara sukarela kepada kami saat Anda mendaftar atau menghubungi kami, yang mungkin termasuk:</p>
+            <ul>
+                <li>Nama Lengkap</li>
+                <li>Alamat Email</li>
+                <li>Nomor Telepon (WhatsApp)</li>
+            </ul>
+
+            <h2>2. Penggunaan Informasi</h2>
+            <p>Informasi yang kami kumpulkan hanya digunakan untuk tujuan berikut:</p>
+            <ul>
+                <li>Untuk mengelola akun Anda dan menyediakan layanan investasi kami.</li>
+                <li>Untuk berkomunikasi dengan Anda, termasuk mengirimkan pembaruan, laporan, dan menanggapi pertanyaan Anda.</li>
+                <li>Untuk mematuhi kewajiban hukum dan peraturan yang berlaku.</li>
+            </ul>
+
+            <h2>3. Keamanan Data</h2>
+            <p>Keamanan data Anda adalah prioritas kami. Kami menerapkan langkah-langkah keamanan teknis dan administratif yang wajar untuk melindungi informasi pribadi Anda dari kehilangan, pencurian, penyalahgunaan, serta akses atau pengungkapan yang tidak sah.</p>
+            
+            <h2>4. Pernyataan Risiko (Risk Disclaimer)</h2>
+            <p>EPSILONE menyediakan layanan manajemen investasi menggunakan algoritma trading otomatis. Semua aktivitas trading memiliki risiko yang signifikan. Kinerja masa lalu dari sistem kami bukan merupakan jaminan atau indikasi hasil di masa depan.</p>
+            <p>Anda harus memahami sepenuhnya bahwa investasi di pasar keuangan, termasuk XAU/USD (Emas), dapat mengakibatkan kerugian sebagian atau seluruh modal Anda. Dengan berinvestasi bersama kami, Anda menyatakan bahwa Anda telah memahami dan menerima risiko-risiko ini.</p>
+
+            <h2>5. Perubahan Kebijakan</h2>
+            <p>Kami dapat memperbarui Kebijakan Privasi ini dari waktu ke waktu. Versi terbaru akan diposting di halaman ini dengan tanggal pembaruan yang direvisi. Kami menganjurkan Anda untuk meninjau kebijakan ini secara berkala.</p>
+
+            <h2>6. Hubungi Kami</h2>
+            <p>Jika Anda memiliki pertanyaan atau kekhawatiran mengenai Kebijakan Privasi ini, silakan hubungi kami melalui email di <a href="mailto:investwithepsilone@gmail.com">investwithepsilone@gmail.com</a>.</p>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-grid">
+            
+            <div class="footer-column social">
+                <h4>Social Media</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.instagram.com/_alfath.kurnia/?__pwa=1#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column contact">
+                <h4>Kontak</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="mailto:investwithepsilone@gmail.com">investwithepsilone@gmail.com</a>
+                        <i class="fas fa-envelope"></i>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/6281213483500" target="_blank">0812-1348-3500</a>
+                        <i class="fab fa-whatsapp"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-about">
+            <p>EPSILONE adalah platform investasi yang berfokus pada algoritma trading presisi di pasar XAU/USD untuk pertumbuhan aset yang konsisten. Investasi memiliki risiko. Harap pahami sebelum memutuskan.</p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2025 EPSILONE. All Rights Reserved. Dikelola oleh Muhammad Alfath Kurnia.
+                <a href="privacy-policy.html">Privacy and Policy</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

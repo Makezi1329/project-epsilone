@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EPSILONE | Consistent Growth</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         /* --- ROOT VARIABLES --- */
         :root {
@@ -41,8 +47,8 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 0 5%; /* Padding atas/bawah dihapus */
-            height: 90px;  /* Tinggi header dipaksa menjadi 90px */
+            padding: 0 5%;
+            height: 90px;
             display: flex;
             align-items: center;
             z-index: 1000;
@@ -59,9 +65,8 @@
             gap: 15px; 
         }
 
-        /* --- CSS BARU UNTUK LOGO GAMBAR --- */
         .logo-image {
-            height: 120px; /* Logo tetap 120px (akan meluap dari header 90px) */
+            height: 120px;
             width: auto;
             transition: height 0.3s ease;
         }
@@ -193,15 +198,209 @@
             line-height: 1.7;
         }
 
+        /* --- QUOTES SECTION --- */
+        .quote-section {
+            padding: 80px 5%;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote-card {
+            background: rgba(10, 25, 40, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .quote-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--logo-cyan);
+            flex-shrink: 0;
+        }
+
+        .quote-content {
+            flex: 1;
+            text-align: left;
+            min-width: 250px;
+        }
+
+        .quote-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .quote-text::before {
+            content: "“";
+            position: absolute;
+            left: 0;
+            top: -10px;
+            font-size: 3em;
+            color: var(--logo-cyan);
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .quote-author {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-align: right;
+            padding-right: 30px;
+            position: relative;
+        }
+        
+        .quote-author::after {
+            content: "”";
+            position: absolute;
+            right: 0;
+            bottom: -10px;
+            font-size: 3em;
+            color: var(--logo-cyan);
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        /* --- CSS "TENTANG EPSILONE" BARU --- */
+        /* CSS untuk .about-disclaimer DIHAPUS */
+
+        /* --- FOOTER --- */
+        .footer {
+            padding: 60px 5% 40px 5%; /* Padding atas ditambah lagi */
+            margin-top: 60px;
+            background-color: var(--bg-darkest);
+            border-top: 1px solid rgba(255, 255, 255, 0.05); /* Garis pembatas dari Quote */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-column h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        /* Kolom 1 (Sosial Media) */
+        .footer-column.social {
+            text-align: left;
+        }
+
+        .footer-social-links a {
+            display: inline-block;
+            color: var(--text-secondary);
+            font-size: 1.5em;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social-links a:hover {
+            color: var(--logo-cyan);
+        }
+
+        /* Kolom 2 (Kontak) */
+        .footer-column.contact {
+            text-align: right;
+        }
+
+        .footer-contact-list {
+            list-style: none;
+        }
+
+        .footer-contact-list li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        .footer-contact-list i {
+            font-size: 1.1em;
+            color: var(--logo-cyan);
+            width: 20px;
+            text-align: center;
+        }
+
+        .footer-contact-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact-list a:hover {
+            color: var(--text-primary);
+        }
+        
+        /* --- CSS BARU UNTUK TENTANG EPSILONE --- */
+        .footer-about {
+            padding: 40px 0; /* Jarak atas & bawah */
+            margin: 40px 0 0 0; /* Jarak dari grid di atasnya */
+            border-top: 1px solid rgba(255, 255, 255, 0.05); /* Garis pemisah */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Garis pemisah */
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            text-align: center;
+            max-width: 1200px; /* Samakan dgn max-width grid */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Bagian Bawah Footer (Copyright & Privacy) */
+        .footer-bottom {
+            margin-top: 40px; /* Jarak dari .footer-about */
+            padding-top: 0; /* Padding-top dihapus krn sudah ada garis di atas .footer-about */
+            border-top: none; /* Border-top dihapus */
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+        
+        .footer-bottom a {
+            color: var(--logo-cyan);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+
         /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .header {
                 padding: 0 5%;
-                height: 70px; /* Header mobile 70px */
+                height: 70px;
             }
 
             .logo-image {
-                height: 70px; /* Logo mobile 70px (pas dengan header) */
+                height: 70px;
             }
 
             .hero {
@@ -223,6 +422,50 @@
             .grid-3 {
                 grid-template-columns: 1fr;
             }
+
+            .quote-card {
+                flex-direction: column;
+                gap: 20px;
+                padding: 30px;
+            }
+
+            .quote-content {
+                text-align: center;
+            }
+
+            .quote-text {
+                padding-left: 0;
+            }
+
+            .quote-text::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .quote-author {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .quote-author::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            
+            /* --- RESPONSIVE FOOTER --- */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-column.social {
+                text-align: center;
+            }
+            .footer-column.contact {
+                text-align: center;
+            }
+            .footer-contact-list li {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -242,7 +485,7 @@
             EPSILONE menawarkan peluang investasi eksklusif di pasar XAU/USD dengan algoritma trading presisi yang dirancang untuk menghasilkan imbal hasil stabil dan konsisten setiap bulan.
         </p>
 
-        <a href="https://wa.me/62081213483500" class="cta-button">
+        <a href="https://wa.me/6281213483500?text=Halo%2C%20tim%2C%20EPSILONE.%20Saya%20sudah%20melihat%20website%20Anda%20dan%20tertarik%20untuk%20menjadi%20salah%20satu%20investor.%20Mohon%20info%20langkah%20selanjutnya." class="cta-button" target="_blank">
             Bergabung Sekarang
         </a>
     </section>
@@ -267,5 +510,53 @@
         </div>
     </section>
 
-</body>
+    <section class="quote-section">
+        <div class="quote-card">
+            <img src="warren_buffett.jpg" alt="Warren Buffett" class="quote-image">
+            <div class="quote-content">
+                <p class="quote-text">
+                    Risk comes from not knowing what you're doing.
+                </p>
+                <p class="quote-author">— Warren Buffett</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="footer-grid">
+            
+            <div class="footer-column social">
+                <h4>Social Media</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.instagram.com/_alfath.kurnia/?__pwa=1#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+            </div>
+
+            <div class="footer-column contact">
+                <h4>Kontak</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <a href="mailto:investwithepsilone@gmail.com">investwithepsilone@gmail.com</a>
+                        <i class="fas fa-envelope"></i>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/6281213483500" target="_blank">0812-1348-3500</a>
+                        <i class="fab fa-whatsapp"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-about">
+            <p>EPSILONE adalah platform investasi yang berfokus pada algoritma trading presisi di pasar XAU/USD untuk pertumbuhan aset yang konsisten. Investasi memiliki risiko. Harap pahami sebelum memutuskan.</p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © 2025 EPSILONE. All Rights Reserved. Dikelola oleh MAKE.
+                <a href="privacy-policy.html">Privacy and Policy</a>
+            </p>
+            </div>
+    </footer>
+    </body>
 </html>
