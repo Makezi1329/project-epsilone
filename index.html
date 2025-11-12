@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPSILONE | Consistent Growth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* --- ROOT VARIABLES --- */
+        :root {
+            --bg-darkest: #010a11;
+            --bg-fog: #0d1e2e;
+            --accent-gold: #d4af37;
+            --logo-cyan: #7DD3D8;
+            --text-primary: #e6f1f5;
+            --text-secondary: #8892b0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-color: var(--bg-darkest);
+            background-image:
+                radial-gradient(circle at 50% 30%, rgba(20, 40, 60, 0.4) 0%, transparent 70%),
+                linear-gradient(to bottom, var(--bg-fog) 0%, var(--bg-darkest) 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        /* --- HEADER WITH LOGO --- */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0 5%; /* Padding atas/bawah dihapus */
+            height: 90px;  /* Tinggi header dipaksa menjadi 90px */
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(1, 10, 17, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: padding 0.3s ease; 
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px; 
+        }
+
+        /* --- CSS BARU UNTUK LOGO GAMBAR --- */
+        .logo-image {
+            height: 120px; /* Logo tetap 120px (akan meluap dari header 90px) */
+            width: auto;
+            transition: height 0.3s ease;
+        }
+        
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 5% 60px; 
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5em;
+            font-weight: 300;
+            color: var(--logo-cyan);
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-text {
+            max-width: 700px;
+            font-size: 1.2em;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- CTA BUTTON --- */
+        .cta-button {
+            padding: 18px 40px;
+            background: transparent;
+            color: var(--logo-cyan);
+            border: 2px solid var(--logo-cyan);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1em;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .cta-button:hover {
+            background: var(--logo-cyan);
+            color: var(--bg-darkest);
+            box-shadow: 0 0 30px rgba(125, 211, 216, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* --- CARDS SECTION --- */
+        .features-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(10, 25, 40, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: var(--logo-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .card-text {
+            color: var(--text-secondary);
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 5%;
+                height: 70px; /* Header mobile 70px */
+            }
+
+            .logo-image {
+                height: 70px; /* Logo mobile 70px (pas dengan header) */
+            }
+
+            .hero {
+                padding-top: 100px; 
+            }
+
+            .hero-title {
+                font-size: 2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .hero-text {
+                font-size: 1em;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo-container">
+            <img src="epsilone_logo.png" alt="EPSILONE Logo" class="logo-image">
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">Pertumbuhan Konsisten<br>untuk Masa Depan Anda</h1>
+        <p class="hero-subtitle">Eksklusif untuk 10 Investor Terpilih</p>
+        
+        <p class="hero-text">
+            EPSILONE menawarkan peluang investasi eksklusif di pasar XAU/USD dengan algoritma trading presisi yang dirancang untuk menghasilkan imbal hasil stabil dan konsisten setiap bulan.
+        </p>
+
+        <a href="https://wa.me/62081213483500" class="cta-button">
+            Bergabung Sekarang
+        </a>
+    </section>
+
+    <section class="features-section">
+        <div class="grid-3">
+            <div class="feature-card">
+                <div class="card-icon">📈</div>
+                <h3 class="card-title">Pertumbuhan Konsisten</h3>
+                <p class="card-text">Manfaatkan strategi trading XAU/USD yang dirancang untuk menghasilkan imbal hasil stabil setiap bulan.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon">💰</div>
+                <h3 class="card-title">5% Imbal Hasil Tetap</h3>
+                <p class="card-text">Dapatkan profit 5% yang jelas dari modal investasi Anda, dibayarkan secara rutin tanpa fluktuasi pasar.</p>
+            </div>
+            <div class="feature-card">
+                <div class="card-icon">🛡️</div>
+                <h3 class="card-title">Modal Terproteksi</h3>
+                <p class="card-text">Sistem penguncian modal minimal 3 bulan menjaga stabilitas dana dan efektivitas strategi trading.</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
