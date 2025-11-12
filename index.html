@@ -71,6 +71,11 @@
             transition: height 0.3s ease;
         }
         
+        /* === TAMBAHAN CSS UNTUK LINK LOGO === */
+        .logo-container a {
+            line-height: 1; /* Mencegah spasi ekstra dari link */
+        }
+        
         /* --- HERO SECTION --- */
         .hero {
             min-height: 100vh;
@@ -464,8 +469,10 @@
 
     <header class="header">
         <div class="logo-container">
-            <img src="epsilone_logo.png" alt="EPSILONE Logo" class="logo-image">
-        </div>
+            <a href="index.html">
+                <img src="epsilone_logo.png" alt="EPSILONE Logo" class="logo-image">
+            </a>
+            </div>
     </header>
 
     <section class="hero">
