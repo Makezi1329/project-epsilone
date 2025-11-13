@@ -72,7 +72,7 @@
         }
         
         .logo-container a {
-            line-height: 1; 
+            line-height: 1; /* Mencegah spasi ekstra dari link */
         }
 
         /* CSS UNTUK HEADER SAAT SCROLL */
@@ -319,11 +319,24 @@
         }
 
         .faq-container {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            /* Dihapus: border-top */
         }
 
         .faq-item {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            /* === CSS BARU: Gaya Kartu Kaca === */
+            background: rgba(10, 25, 40, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            margin-bottom: 20px; /* Memberi jarak antar kartu */
+            padding: 10px 25px; /* Padding di dalam kartu */
+            transition: border-color 0.3s ease;
+        }
+        
+        /* === CSS BARU: Efek hover untuk kartu FAQ === */
+        .faq-item:hover {
+            border-color: var(--logo-cyan);
         }
 
         .faq-question {
@@ -331,7 +344,7 @@
             border: none;
             color: var(--text-primary);
             width: 100%;
-            padding: 25px 10px;
+            padding: 20px 0; /* Padding atas/bawah untuk tombol */
             text-align: left;
             font-family: 'Montserrat', sans-serif;
             font-size: 1.2em;
@@ -347,11 +360,11 @@
             padding-right: 20px;
         }
 
-        .faq-icon {
-            font-size: 1.5em;
+        /* === CSS BARU: Mengganti ikon '+' dengan ikon chevron === */
+        i.faq-icon {
+            font-size: 1.2em;
             color: var(--logo-cyan);
             transition: transform 0.3s ease;
-            font-weight: 300;
         }
 
         .faq-answer {
@@ -361,10 +374,12 @@
         }
 
         .faq-answer p {
-            padding: 0px 10px 25px 10px;
+            padding: 0 0 25px 0; /* Padding bawah untuk jawaban */
             color: var(--text-secondary);
             font-size: 1em;
             line-height: 1.7;
+            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah */
+            padding-top: 20px; /* Jarak dari pertanyaan */
         }
         
         .faq-answer p b {
@@ -372,13 +387,15 @@
             font-weight: 600;
         }
 
+        /* Style saat FAQ aktif/dibuka */
         .faq-item.active .faq-answer {
             max-height: 500px; 
             transition: max-height 0.5s ease-in;
         }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg); /* Mengubah '+' menjadi 'x' */
+        /* === CSS BARU: Memutar ikon chevron saat aktif === */
+        .faq-item.active i.faq-icon {
+            transform: rotate(180deg); 
         }
         /* === CSS FAQ SELESAI === */
 
@@ -588,6 +605,13 @@
             /* Responsive FAQ */
             .faq-question {
                 font-size: 1.1em;
+                padding: 20px 5px; /* Padding disesuaikan */
+            }
+            .faq-item {
+                padding: 5px 20px; /* Padding disesuaikan */
+            }
+            .faq-answer p {
+                padding: 15px 5px 20px 5px;
             }
         }
     </style>
@@ -638,8 +662,12 @@
 
     <section class="quote-section">
         <div class="quote-card">
-            <!-- Pastikan nama file "warren.buffett.jpg" sudah benar sesuai file kamu -->
-            <img src="warren.buffett.jpg" alt="Warren Buffett" class="quote-image"> 
+            <!-- 
+                Pastikan nama file ini (warren_buffett.jpg) 
+                SESUAI dengan nama file di folder GitHub kamu.
+                Jika nama file kamu 'warren.buffett.jpg', ganti di bawah ini.
+            -->
+            <img src="warren_buffett.jpg" alt="Warren Buffett" class="quote-image"> 
             <div class="quote-content">
                 <p class="quote-text">
                     Risk comes from not knowing what you're doing.
@@ -649,7 +677,7 @@
         </div>
     </section>
     
-    <!-- === BAGIAN FAQ BARU === -->
+    <!-- === BAGIAN FAQ (HTML DIPERBARUI) === -->
     <section class="faq-section">
         <h2 class="section-title">Frequently Asked Questions (FAQ)</h2>
         <div class="faq-container">
@@ -657,7 +685,8 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Apa yang terjadi jika bot trading rugi (loss)? Apakah saya tetap dibayar 5%?</span>
-                    <span class="faq-icon">+</span>
+                    <!-- Menggunakan Ikon Font Awesome -->
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Ya, Anda tetap akan menerima profit 5% penuh. Skema kami adalah "imbal hasil tetap", yang berarti kewajiban kami untuk membayar 5% tidak bergantung pada performa bot di bulan tersebut. Jika bot rugi, kami (MAKE) yang akan menanggung kerugian tersebut untuk memastikan Anda tetap menerima imbal hasil yang dijanjikan.</p>
@@ -667,7 +696,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Bagaimana EPSILONE/MAKE bisa menjamin pembayaran 5%?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Kami sangat percaya diri dengan performa algoritma kami yang sudah teruji. Bot kami dirancang untuk menghasilkan profit rata-rata harian (sekitar Rp 300.000/hari) yang jauh di atas 5% per bulan. Selisih profit besar inilah yang menjadi keuntungan kami sekaligus jaminan (buffer) untuk menutupi pembayaran tetap 5% Anda, bahkan jika ada hari-hari di mana bot tidak profit.</p>
@@ -677,7 +706,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Apakah investasi ini legal dan diawasi oleh OJK?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Tidak. Perlu kami jelaskan bahwa ini bukan produk investasi publik yang ditawarkan kepada masyarakat umum. Ini adalah program kemitraan pribadi (private fund) yang hanya terbatas untuk 10 slot investor saja. Dana Anda dikelola secara transparan di akun terpisah oleh MAKE.</p>
@@ -687,7 +716,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Siapa di balik MAKE / EPSILONE?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>EPSILONE dikelola oleh saya, MAKE (Muhammad Alfath Kurnia). Saya adalah seorang praktisi teknologi dan mahasiswa Data Science yang memiliki keahlian khusus dalam mengembangkan algoritma trading. Anda bisa terhubung langsung dengan saya melalui Instagram atau WhatsApp yang tertera untuk diskusi lebih lanjut.</p>
@@ -697,7 +726,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Kenapa ada lock-up period 3 bulan, dan kapan saya bisa menarik modal?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Periode lock-up 3 bulan adalah kunci utama dari manajemen risiko kami, yang melindungi modal semua investor (termasuk Anda). Bot trading kami seringkali memiliki posisi terbuka (floating position) yang strateginya sudah dihitung berdasarkan total modal.<br><br>Penarikan dana yang tiba-tiba dapat mengganggu perhitungan ini, mengurangi margin akun secara drastis, dan berisiko memaksa kami menutup posisi trading pada saat yang tidak ideal (cut loss).<br><br><b>Penarikan Normal:</b> Karena itu, penarikan normal hanya bisa dilakukan setelah 3 bulan berakhir. Anda cukup memberi notifikasi 7 hari sebelum akhir bulan.</p>
@@ -707,7 +736,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Bagaimana jika saya terpaksa menarik dana sebelum 3 bulan?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Kami sangat menyarankan untuk berkomitmen penuh pada periode lock-up karena alasan manajemen risiko di atas. Namun, jika situasi darurat terjadi dan Anda terpaksa menarik modal sebelum 3 bulan, maka akan dikenakan penalti sebesar 10% dari total modal Anda, dan imbal hasil 5% untuk bulan tersebut akan hangus.</p>
@@ -717,7 +746,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     <span>Bagaimana langkah-langkah untuk mulai berinvestasi?</span>
-                    <span class="faq-icon">+</span>
+                    <i class="fas fa-chevron-down faq-icon"></i>
                 </button>
                 <div class="faq-answer">
                     <p>Prosesnya mudah: 1. Hubungi kami melalui tombol "Bergabung Sekarang". 2. Kami akan mengirimkan detail rekening tujuan. 3. Anda melakukan transfer modal investasi. 4. Kami akan mengkonfirmasi dan investasi Anda resmi dimulai. Profit pertama Anda akan cair 30 hari kemudian.</p>
@@ -764,7 +793,6 @@
 
         <div class="footer-bottom">
             <p>
-                <!-- === TEKS FOOTER DIPERBARUI === -->
                 © 2025 EPSILONE. All Rights Reserved. Dikelola oleh MAKE.
                 <a href="terms-condition.html">Terms & Condition</a>
                 <a href="privacy-policy.html">Privacy Policy</a>
@@ -789,24 +817,16 @@
                 });
             }
 
-            // --- Skrip BARU untuk FAQ Interaktif ---
+            // --- Skrip FAQ (LOGIKA DIPERBARUI) ---
             const faqItems = document.querySelectorAll('.faq-item');
 
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
                 
                 question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-
-                    // 1. Tutup semua item lain
-                    faqItems.forEach(otherItem => {
-                        otherItem.classList.remove('active');
-                    });
-
-                    // 2. Buka item yang diklik (jika tadinya tertutup)
-                    if (!isActive) {
-                        item.classList.add('active');
-                    }
+                    // Cukup toggle class 'active' PADA ITEM YANG DIKLIK
+                    // Ini akan membiarkan item lain tetap terbuka
+                    item.classList.toggle('active');
                 });
             });
 
